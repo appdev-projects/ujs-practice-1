@@ -6,11 +6,10 @@
   <div class="row">
     <div class="col-md-4">
       <div class="d-grid gap-2">
-        <%= link_to move_task_path(task), class: "btn btn-link" do %>
-          <% case task.status %>
-          <% when "not_yet_started" %>
+        <%= link_to move_task_path(task), class: "btn btn-link", method: :patch, remote: true do %>
+          <% if task.not_yet_started? %>
             <i class="fa-sharp fa-solid fa-forward"></i>
-          <% when "in_progress" %>
+          <% elsif task.in_progress? %>
             <i class="fa-regular fa-circle-check"></i>
           <% else %>
             <i class="fa-sharp fa-solid fa-backward"></i>
