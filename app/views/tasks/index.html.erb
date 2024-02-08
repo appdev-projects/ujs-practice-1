@@ -1,25 +1,37 @@
 <div class="row">
   <div class="col-md-4">
-    <h2 class="h6 text-center">Not yet started</h2>
-
-    <ul id="not_yet_started_list" class="list-group">
-      <%= render current_user.tasks.not_yet_started.order(created_at: :asc) %>
-    </ul>
+    <div class="card">
+      <div class="card-header">
+        Not yet started
+      </div>
+    
+      <ul id="not_yet_started_list" class="list-group list-group-flush">
+        <%= render current_user.tasks.not_yet_started.order(created_at: :asc) %>
+      </ul>
+    </div>
   </div>
 
   <div class="col-md-4">
-    <h2 class="h6 text-center">In progress</h2>
-
-    <ul id="in_progress_list" class="list-group">
-      <%= render current_user.tasks.in_progress.order(updated_at: :desc) %>
-    </ul>
+    <div class="card">
+      <div class="card-header">
+        In progress
+      </div>
+    
+      <ul id="in_progress_list" class="list-group list-group-flush">
+        <%= render current_user.tasks.in_progress.order(updated_at: :desc) %>
+      </ul>
+    </div>
   </div>
 
   <div class="col-md-4">
-    <h2 class="h6 text-center">Completed</h2>
-
-    <ul id="completed_list" class="list-group">
-      <%= render current_user.tasks.completed.order(updated_at: :desc) %>
-    </ul>
+    <div class="card">
+      <div class="card-header">
+        Completed
+      </div>
+    
+      <ul id="completed_list" class="list-group list-group-flush">
+        <%= render current_user.tasks.completed.order(updated_at: :desc) %>
+      </ul>
+    </div>
   </div>
 </div>
