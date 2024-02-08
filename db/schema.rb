@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_08_181245) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_08_184306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_08_181245) do
   create_table "tasks", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "user_id", null: false
-    t.string "satus", default: "not_yet_started", null: false
+    t.string "status", default: "not_yet_started", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
