@@ -1,17 +1,39 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Content:</strong>
+<li id="<%= dom_id(task) %>" class="list-group-item">
+  <div>
     <%= task.content %>
-  </p>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= task.user_id %>
-  </p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="d-grid gap-2">
+        <%= link_to move_task_path(task), class: "btn btn-link" do %>
+          <% case task.status %>
+          <% when "not_yet_started" %>
+            <i class="fa-sharp fa-solid fa-forward"></i>
+          <% when "in_progress" %>
+            <i class="fa-regular fa-circle-check"></i>
+          <% else %>
+            <i class="fa-sharp fa-solid fa-backward"></i>
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
 
-  <p>
-    <strong>Satus:</strong>
-    <%= task.satus %>
-  </p>
+    <div class="col-md-4">
+      <div class="d-grid gap-2">
+        <%= link_to edit_task_path(task), class: "btn btn-link" do %>
+          <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+        <% end %>
+      </div>
+    </div>
 
-</div>
+    <div class="col-md-4">
+    <div class="d-grid gap-2">
+      <%= link_to task, method: :delete, class: "btn btn-link" do %>
+        <i class="fa-sharp fa-solid fa-trash-can"></i>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</li>
