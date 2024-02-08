@@ -6,8 +6,8 @@
       </div>
     
       <ul id="not_yet_started_list" class="list-group list-group-flush">
-        <%= render current_user.tasks.not_yet_started.order(created_at: :asc) %>
         <%= render "tasks/form", task: current_user.tasks.build %>
+        <%= render current_user.tasks.not_yet_started.order(created_at: :asc) %>
       </ul>
     </div>
   </div>
