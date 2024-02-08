@@ -21,7 +21,7 @@
 
     <div class="col-md-4">
       <div class="d-grid gap-2">
-        <%= link_to edit_task_path(task), class: "btn btn-link" do %>
+        <%= link_to edit_task_path(task), remote: true, class: "btn btn-link" do %>
           <i class="fa-sharp fa-solid fa-pen-to-square"></i>
         <% end %>
       </div>
