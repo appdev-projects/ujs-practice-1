@@ -1,10 +1,11 @@
 desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment }) do
-  user = User.find_or_create_by(email: "alice@example.com") do |user|
-    user.password = "password"
-  end
+  User.destroy_all
+  Task.destroy_all
 
-  user.tasks.destroy_all
+  user = User.find_or_create_by(email: "alice@example.com") do |user|
+    user.password = "appdev"
+  end
 
   Task.statuses.values.each do |status|
     rand(3..10).times do
